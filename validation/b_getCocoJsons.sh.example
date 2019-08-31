@@ -1,0 +1,192 @@
+#!/bin/bash
+# Script to extract COCO JSON file for each trained model
+clear && clear
+
+echo "Parameters to change"
+# NUMBER_FOLDER=25
+# EXPERIMENT=1_25BBkg
+NUMBER_FOLDER=135
+EXPERIMENT=1_135NewTrainTest
+# Body/Foot
+IMAGE_DIR="/home/gines/devel/images/val2017/"
+# Face
+IMAGE_DIR_FRGC="/home/gines/devel/images/frgc_val/"
+IMAGE_DIR_MPIE="/home/gines/devel/images/multipie_val/"
+IMAGE_DIR_FACE_MASK_OUT="/home/gines/devel/images/face_mask_out_val/"
+# Hand
+IMAGE_DIR_HAND_DOME="/home/gines/devel/images/hand_dome_val/"
+IMAGE_DIR_HAND_MPII="/home/gines/devel/images/hand_mpii_val/"
+
+echo "Common parameters to both files a_*.sh and b_*.sh"
+SHARED_FOLDER=/media/posefs3b/Users/gines/openpose_train/training_results/${EXPERIMENT}/pose/body_${NUMBER_FOLDER}/
+# SHARED_FOLDER=/media/posefs3b/Users/gines/openpose_train/training_results/${EXPERIMENT}/pose/body_${NUMBER_FOLDER}b/
+# SHARED_FOLDER=/media/posefs3b/Users/gines/openpose_train/training_results/${EXPERIMENT}/pose/body_${NUMBER_FOLDER}d/
+# SHARED_FOLDER=/media/posefs3b/Users/gines/openpose_train/training_results/${EXPERIMENT}/pose/body_${NUMBER_FOLDER}e/
+# SHARED_FOLDER=/media/posefs3b/Users/gines/openpose_train/training_results/${EXPERIMENT}/pose/body_${NUMBER_FOLDER}n/
+# SHARED_FOLDER=/media/posefs3b/Users/gines/openpose_train/training_results/${EXPERIMENT}/pose/body_${NUMBER_FOLDER}_x2/
+echo " "
+
+echo "Paths"
+OPENPOSE_MODEL=BODY_${NUMBER_FOLDER}
+# OPENPOSE_MODEL=BODY_${NUMBER_FOLDER}B
+# OPENPOSE_MODEL=BODY_${NUMBER_FOLDER}E
+OPENPOSE_FOLDER=/home/gines/Dropbox/Perceptual_Computing_Lab/openpose/openpose/
+# Body
+JSON_FOLDER_1=${SHARED_FOLDER}1scale/
+JSON_FOLDER_4=${SHARED_FOLDER}4scales/
+# Foot
+JSON_FOLDER_1_foot=${SHARED_FOLDER}foot_1scale/
+JSON_FOLDER_4_foot=${SHARED_FOLDER}foot_4scales/
+# Face
+JSON_FOLDER_1_frgc=${SHARED_FOLDER}frgc_1scale/
+# JSON_FOLDER_4_frgc=${SHARED_FOLDER}frgc_4scales/
+JSON_FOLDER_1_mpie=${SHARED_FOLDER}mpie_1scale/
+# JSON_FOLDER_4_mpie=${SHARED_FOLDER}mpie_4scales/
+JSON_FOLDER_1_faceMaskOut=${SHARED_FOLDER}faceMask_1scale/
+# JSON_FOLDER_4_faceMaskOut=${SHARED_FOLDER}faceMask_4scales/
+# Hand
+JSON_FOLDER_1_hand_dome=${SHARED_FOLDER}hand_dome_1scale/
+# JSON_FOLDER_4_hand_dome=${SHARED_FOLDER}dome_4scales/
+JSON_FOLDER_1_hand_mpii=${SHARED_FOLDER}hand_mpii_1scale/
+# JSON_FOLDER_4_hand_mpii=${SHARED_FOLDER}mpii_4scales/
+
+# Create folders
+# Body
+mkdir $JSON_FOLDER_1
+mkdir $JSON_FOLDER_4
+# Foot
+mkdir $JSON_FOLDER_1_foot
+mkdir $JSON_FOLDER_4_foot
+# Face
+mkdir $JSON_FOLDER_1_frgc
+# mkdir $JSON_FOLDER_4_frgc
+mkdir $JSON_FOLDER_1_mpie
+# mkdir $JSON_FOLDER_4_mpie
+mkdir $JSON_FOLDER_1_faceMaskOut
+# mkdir $JSON_FOLDER_4_faceMaskOut
+# Hand
+mkdir $JSON_FOLDER_1_hand_dome
+# mkdir $JSON_FOLDER_4_hand_dome
+mkdir $JSON_FOLDER_1_hand_mpii
+# mkdir $JSON_FOLDER_4_hand_mpii
+echo " "
+
+# echo "Sleeping for 8h..."
+# sleep 27000
+# echo "Awaken!"
+
+
+
+# Different code than a_*.sh
+echo "Running OpenPose for each model"
+MODEL_FOLDER=$(dirname $(dirname ${SHARED_FOLDER}))/
+pwd
+cd $OPENPOSE_FOLDER
+# Sorted in natural order (NAT sort)
+for modelPath in `ls -v ${SHARED_FOLDER}*.caffemodel`; do
+# Not NAT sort
+# for modelPath in ${SHARED_FOLDER}*.caffemodel; do
+    prototxtPath=$(dirname ${modelPath})/pose_deploy.prototxt
+    modelName=$(basename ${modelPath})
+    temporaryJsonFile1=~/Desktop/temporaryJson_${EXPERIMENT}_${modelName}_1.json
+    temporaryJsonFile4=~/Desktop/temporaryJson_${EXPERIMENT}_${modelName}_4.json
+    OP_COMAND="./build/examples/openpose/openpose.bin --model_pose ${OPENPOSE_MODEL} --prototxt_path ${prototxtPath} --caffemodel_path ${modelPath} --render_pose 0 --display 0 --cli_verbose 0.2"
+    OP_COMAND_1SCALE="${OP_COMAND} --write_coco_json ${temporaryJsonFile1} --num_gpu -1"
+    OP_COMAND_4SCALES="${OP_COMAND} --write_coco_json ${temporaryJsonFile4} --num_gpu -1"
+
+    echo "Processing $modelName in $EXPERIMENT"
+
+    # Body/foot 1 scale
+    echo "Processing bodies/feet..."
+    finalJsonFile1=${JSON_FOLDER_1}${modelName}_1.json
+    finalJsonFile1_foot=${JSON_FOLDER_1_foot}${modelName}_1.json
+    temporaryJsonFile1Foot=~/Desktop/temporaryJson_${EXPERIMENT}_${modelName}_1_foot.json
+    if [ -f $finalJsonFile1 ]; then
+        echo "1-scale body/foot model already exists."
+    else
+        # Body/foot processing
+        $OP_COMAND_1SCALE --image_dir ${IMAGE_DIR} --write_coco_json_variants 3 --model_folder ""
+        # Move JSON to NAS after finished
+        mv ${temporaryJsonFile1} ${finalJsonFile1}
+        mv ${temporaryJsonFile1Foot} ${finalJsonFile1_foot}
+    fi
+
+    # Faces
+    echo "Processing faces..."
+    temporaryJsonFile1Face=~/Desktop/temporaryJson_${EXPERIMENT}_${modelName}_1_face.json
+    # Face FRGC processing
+    finalJsonFile1_frgc=${JSON_FOLDER_1_frgc}${modelName}_1.json
+    if [ -f ${finalJsonFile1_frgc} ]; then
+        echo "1-scale face FRGC model already exists."
+    else
+        $OP_COMAND_1SCALE --image_dir ${IMAGE_DIR_FRGC} --write_coco_json_variants 4 --model_folder ""
+        # Move JSON to NAS after finished
+        mv ${temporaryJsonFile1Face} ${finalJsonFile1_frgc}
+    fi
+    # Face MPIE processing
+    finalJsonFile1_mpie=${JSON_FOLDER_1_mpie}${modelName}_1.json
+    if [ -f ${finalJsonFile1_mpie} ]; then
+        echo "1-scale face MPIE model already exists."
+    else
+        $OP_COMAND_1SCALE --image_dir ${IMAGE_DIR_MPIE} --write_coco_json_variants 4 --model_folder ""
+        # Move JSON to NAS after finished
+        mv ${temporaryJsonFile1Face} ${finalJsonFile1_mpie}
+    fi
+    # Face Mask Out processing
+    finalJsonFile1_faceMaskOut=${JSON_FOLDER_1_faceMaskOut}${modelName}_1.json
+    if [ -f ${finalJsonFile1_faceMaskOut} ]; then
+        echo "1-scale face mask out model already exists."
+    else
+        $OP_COMAND_1SCALE --image_dir ${IMAGE_DIR_FACE_MASK_OUT} --write_coco_json_variants 4 --model_folder ""
+        # Move JSON to NAS after finished
+        mv ${temporaryJsonFile1Face} ${finalJsonFile1_faceMaskOut}
+    fi
+
+    # Hands
+    echo "Processing hands..."
+    # Hand Dome processing
+    temporaryJsonFile1Hand21=~/Desktop/temporaryJson_${EXPERIMENT}_${modelName}_1_hand21.json
+    finalJsonFile1_hand_dome=${JSON_FOLDER_1_hand_dome}${modelName}_1.json
+    if [ -f ${finalJsonFile1_hand_dome} ]; then
+        echo "1-scale hand Dome model already exists."
+    else
+        $OP_COMAND_1SCALE --image_dir ${IMAGE_DIR_HAND_DOME} --write_coco_json_variants 8 --model_folder ""
+        # Move JSON to NAS after finished
+        mv ${temporaryJsonFile1Hand21} ${finalJsonFile1_hand_dome}
+    fi
+    # Hand MPII processing
+    temporaryJsonFile1Hand42=~/Desktop/temporaryJson_${EXPERIMENT}_${modelName}_1_hand42.json
+    finalJsonFile1_hand_mpii=${JSON_FOLDER_1_hand_mpii}${modelName}_1.json
+    if [ -f ${finalJsonFile1_hand_mpii} ]; then
+        echo "1-scale hand MPII model already exists."
+    else
+        $OP_COMAND_1SCALE --image_dir ${IMAGE_DIR_HAND_MPII} --write_coco_json_variants 16 --model_folder ""
+        # Move JSON to NAS after finished
+        mv ${temporaryJsonFile1Hand42} ${finalJsonFile1_hand_mpii}
+    fi
+
+    # Body/foot 4 scales
+    finalJsonFile4=${JSON_FOLDER_4}${modelName}_4.json
+    finalJsonFile4_foot=${JSON_FOLDER_4_foot}${modelName}_4.json
+    temporaryJsonFile4Foot=~/Desktop/temporaryJson_${EXPERIMENT}_${modelName}_4_foot.json
+    if [ -f $finalJsonFile4 ]; then
+        echo "4-scale body/foot model already exists."
+    else
+        # Body/foot processing
+        $OP_COMAND_4SCALES --image_dir ${IMAGE_DIR} --write_coco_json_variants 3 --model_folder "" --scale_number 4 --scale_gap 0.25 --net_resolution "1312x736"
+        # Move JSON to NAS after finished
+        mv ${temporaryJsonFile4} ${finalJsonFile4}
+        mv ${temporaryJsonFile4Foot} ${finalJsonFile4_foot}
+    fi
+
+    # echo $modelPath
+    echo " "
+done
+echo " "
+
+
+
+
+
+echo "Finished! Exiting script..."
+echo " "

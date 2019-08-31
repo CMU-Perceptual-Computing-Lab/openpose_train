@@ -1,0 +1,12 @@
+http://cairographics.org/
+
+The Windows dynamic linked libraries necessary to run Cairo can be downloaded from
+http://www.gtk.org/download/win32.php
+All the dlls listed under the heading "Required third party dependencies" are 
+required except gettext-runtime.dll.
+
+A Delphi library that interfaces with the Cairo dlls is 
+"Cairo Graphics Delphi Bindings" available at
+http://www.rodi.dk/programming_cairo.php
+Direct link to the download - 
+http://www.rodi.dk/download1.php?cairo-delphi-bindings-1.0.zip

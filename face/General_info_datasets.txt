@@ -1,0 +1,10 @@
+# Used
+frgc, ibug, lfpw, multipie --> image + pts per image
+
+frgc and multipie --> 1 person / image (and always labeled)
+helen, ibug, and lfpw --> 1 person / image labeled but there could be unlabeled people
+
+# Discarded
+COFW_color --> image + mat per image or a general mat for the whole training
+COFW_color: Only 18 keypoints on *.pts files and 29 keypoints on train/test.mat!
+COFW_color --> 1 person / image labeled but there could be unlabeled people

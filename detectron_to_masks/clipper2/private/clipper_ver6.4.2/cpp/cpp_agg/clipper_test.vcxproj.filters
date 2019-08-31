@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="clipper_test.cpp" />
+    <ClCompile Include="..\clipper.cpp">
+      <Filter>ClipperLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_arc.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_arrowhead.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_bezier_arc.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_bspline.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_curves.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_embedded_raster_fonts.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_gsv_text.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_image_filters.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_line_aa_basics.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_line_profile_aa.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_rounded_rect.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_sqrt_tables.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_trans_affine.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_trans_double_path.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_trans_single_path.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_trans_warp_magnifier.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_vcgen_bspline.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_vcgen_contour.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_vcgen_dash.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_vcgen_markers_term.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_vcgen_smooth_poly1.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_vcgen_stroke.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_vpgen_clip_polygon.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_vpgen_clip_polyline.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\agg_vpgen_segmentator.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\ctrl\agg_rbox_ctrl.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\platform\win32\agg_platform_support.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\src\platform\win32\agg_win32_bmp.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\examples\make_arrows.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\agg_src\examples\make_gb_poly.cpp">
+      <Filter>agg_src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="agg_src">
+      <UniqueIdentifier>{31703eea-b46a-4b7c-93fe-7b3889404c6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ClipperLib">
+      <UniqueIdentifier>{0d7823fd-c31f-4f5d-b1f5-3f3c91751bf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="agg_clipper">
+      <UniqueIdentifier>{0ea31d0f-7e25-4f22-964b-8c74b5ced2fd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\clipper.hpp">
+      <Filter>ClipperLib</Filter>
+    </ClInclude>
+    <ClInclude Include="agg_conv_clipper.h">
+      <Filter>agg_clipper</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

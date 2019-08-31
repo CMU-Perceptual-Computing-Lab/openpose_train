@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "clipper_console_demo", "clipper_console_demo.vcxproj", "{0710EFB8-6D8B-4DF1-9D14-907AE3857FE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0710EFB8-6D8B-4DF1-9D14-907AE3857FE4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0710EFB8-6D8B-4DF1-9D14-907AE3857FE4}.Debug|Win32.Build.0 = Debug|Win32
+		{0710EFB8-6D8B-4DF1-9D14-907AE3857FE4}.Release|Win32.ActiveCfg = Release|Win32
+		{0710EFB8-6D8B-4DF1-9D14-907AE3857FE4}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

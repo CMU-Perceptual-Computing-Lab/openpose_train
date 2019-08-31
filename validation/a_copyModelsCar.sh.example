@@ -1,0 +1,77 @@
+#!/bin/bash
+# Script to copy models from local disk to NAS 3
+clear && clear
+
+echo "Common parameters to both files a_*.sh and b_*.sh"
+EXPERIMENT=2_22car
+# SHARED_FOLDER=/media/posefs3b/Users/gines/openpose_train/training_results/${EXPERIMENT}/pose/body_19_25/
+# SHARED_FOLDER=/media/posefs3b/Users/gines/openpose_train/training_results/${EXPERIMENT}/pose/body_19_x2/
+# SHARED_FOLDER=/media/posefs3b/Users/gines/openpose_train/training_results/${EXPERIMENT}/pose/body_19_x2/
+# SHARED_FOLDER=/media/posefs3b/Users/gines/openpose_train/training_results/${EXPERIMENT}/pose/body_19b/
+# SHARED_FOLDER=/media/posefs3b/Users/gines/openpose_train/training_results/${EXPERIMENT}/pose/body_19n/
+# SHARED_FOLDER=/media/posefs3b/Users/gines/openpose_train/training_results/${EXPERIMENT}/pose/body_25/
+# SHARED_FOLDER=/media/posefs3b/Users/gines/openpose_train/training_results/${EXPERIMENT}/pose/body_25a/
+# SHARED_FOLDER=/media/posefs3b/Users/gines/openpose_train/training_results/${EXPERIMENT}/pose/body_25d/
+# SHARED_FOLDER=/media/posefs3b/Users/gines/openpose_train/training_results/${EXPERIMENT}/pose/body_25e/
+# SHARED_FOLDER=/media/posefs3b/Users/gines/openpose_train/training_results/${EXPERIMENT}/pose/body_23/
+SHARED_FOLDER=/media/posefs3b/Users/gines/openpose_train/training_results/${EXPERIMENT}/car/car_22/
+echo " "
+
+echo "Paths"
+TRAINING_FOLDER=/home/gines/devel/openpose_train/
+MODELS_RELATIVE_FOLDER=training_results/pose/model/
+PROTOTXT_RELATIVE_FOLDER=training_results/pose/
+echo " "
+
+echo "File names"
+PROTOTXT_NAME=*.prototxt
+TRAINING_LOG_NAME=*.txt
+SET_LAYERS_FILE_NAME1=training/d_setLayers.py
+SET_LAYERS_FILE_NAME2=training/generateProtoTxt.py
+SET_LAYERS_FILE_NAME3=training/getResNetProtoTxt.py
+echo " "
+
+SLEEPING_TIME=600
+SLEEPING_TIME_MIN=10
+
+
+
+
+
+# Different code than b_*.sh
+echo "Creating shared folder $SHARED_FOLDER..."
+mkdir -p $SHARED_FOLDER
+echo " "
+
+while true
+do
+    echo "Copying prototxt and training log from ${TRAINING_FOLDER}${MODELS_RELATIVE_FOLDER}..."
+    cp -nr ${TRAINING_FOLDER}${PROTOTXT_RELATIVE_FOLDER}${PROTOTXT_NAME} ${SHARED_FOLDER}
+    cp -f ${TRAINING_FOLDER}${PROTOTXT_RELATIVE_FOLDER}${TRAINING_LOG_NAME} ${SHARED_FOLDER}
+    echo " "
+
+    echo "Copying ${SET_LAYERS_FILE_NAME1} from ${TRAINING_FOLDER}${MODELS_RELATIVE_FOLDER}..."
+    cp -n ${TRAINING_FOLDER}${SET_LAYERS_FILE_NAME1} ${SHARED_FOLDER}
+    cp -n ${TRAINING_FOLDER}${SET_LAYERS_FILE_NAME2} ${SHARED_FOLDER}
+    cp -n ${TRAINING_FOLDER}${SET_LAYERS_FILE_NAME3} ${SHARED_FOLDER}
+    echo " "
+
+    echo "Copying models from ${TRAINING_FOLDER}${MODELS_RELATIVE_FOLDER}..."
+    for caffemodelFile in ${TRAINING_FOLDER}${MODELS_RELATIVE_FOLDER}*.caffemodel; do
+        cp -n ${caffemodelFile} ${SHARED_FOLDER}
+    done
+    echo " "
+
+    # Sleeping
+    echo "Sleeping ${SLEEPING_TIME} seconds (${SLEEPING_TIME_MIN} minutes)..."
+    sleep $SLEEPING_TIME
+    echo "Copying again in 10 seconds"
+    sleep 10
+done
+
+
+
+
+
+echo "Finished! Exiting script..."
+echo " "

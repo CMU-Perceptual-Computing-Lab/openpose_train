@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiDemo", "GuiDemo\GuiDemo.csproj", "{8BD44147-3290-4A73-BAA2-1C171566BC25}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9B062971-A88E-4A3D-B3C9-12B78D15FA66} = {9B062971-A88E-4A3D-B3C9-12B78D15FA66}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clipper_library", "..\clipper_library\clipper_library.csproj", "{9B062971-A88E-4A3D-B3C9-12B78D15FA66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BD44147-3290-4A73-BAA2-1C171566BC25}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{8BD44147-3290-4A73-BAA2-1C171566BC25}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{8BD44147-3290-4A73-BAA2-1C171566BC25}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{8BD44147-3290-4A73-BAA2-1C171566BC25}.Debug|x86.ActiveCfg = Debug|x86
+		{8BD44147-3290-4A73-BAA2-1C171566BC25}.Debug|x86.Build.0 = Debug|x86
+		{8BD44147-3290-4A73-BAA2-1C171566BC25}.Release|Any CPU.ActiveCfg = Release|x86
+		{8BD44147-3290-4A73-BAA2-1C171566BC25}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{8BD44147-3290-4A73-BAA2-1C171566BC25}.Release|Mixed Platforms.Build.0 = Release|x86
+		{8BD44147-3290-4A73-BAA2-1C171566BC25}.Release|x86.ActiveCfg = Release|x86
+		{8BD44147-3290-4A73-BAA2-1C171566BC25}.Release|x86.Build.0 = Release|x86
+		{9B062971-A88E-4A3D-B3C9-12B78D15FA66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B062971-A88E-4A3D-B3C9-12B78D15FA66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B062971-A88E-4A3D-B3C9-12B78D15FA66}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9B062971-A88E-4A3D-B3C9-12B78D15FA66}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9B062971-A88E-4A3D-B3C9-12B78D15FA66}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9B062971-A88E-4A3D-B3C9-12B78D15FA66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B062971-A88E-4A3D-B3C9-12B78D15FA66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B062971-A88E-4A3D-B3C9-12B78D15FA66}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9B062971-A88E-4A3D-B3C9-12B78D15FA66}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9B062971-A88E-4A3D-B3C9-12B78D15FA66}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
