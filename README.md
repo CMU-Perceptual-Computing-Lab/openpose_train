@@ -19,11 +19,11 @@
 
 
 ## Introduction
-[**OpenPose Training**](https://github.com/CMU-Perceptual-Computing-Lab/openpose_training) includes the training code for [**OpenPose**](https://github.com/CMU-Perceptual-Computing-Lab/openpose), as well as some experimental models that might not necessarily end up in OpenPose (to avoid confusing the OpenPose users with too many models).
+[**OpenPose Training**](https://github.com/CMU-Perceptual-Computing-Lab/openpose_training) includes the training code for [**OpenPose**](https://github.com/CMU-Perceptual-Computing-Lab/openpose), as well as some experimental models that might not necessarily end up in OpenPose (to avoid confusing its users with too many models).
 
-It is **authored by [Gines Hidalgo](https://www.gineshidalgo.com), [Yaadhav Raaj](https://www.raaj.tech), [Haroon Idrees](https://scholar.google.com/citations?user=z74SfHcAAAAJ&hl=en), [Donglai Xiang](https://xiangdonglai.github.io), [Hanbyul Joo](https://jhugestar.github.io), [Tomas Simon](http://www.cs.cmu.edu/~tsimon), and [Yaser Sheikh](http://www.cs.cmu.edu/~yaser)**. It is based on [Realtime Multi-Person Pose Estimation](https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation). In addition, OpenPose would not be possible without the [**CMU Panoptic Studio dataset**](http://domedb.perception.cs.cmu.edu). We would also like to thank all the people who helped OpenPose in any way.
+It is **authored by [Gines Hidalgo](https://www.gineshidalgo.com), [Yaadhav Raaj](https://www.raaj.tech), [Haroon Idrees](https://scholar.google.com/citations?user=z74SfHcAAAAJ&hl=en), [Donglai Xiang](https://xiangdonglai.github.io), [Hanbyul Joo](https://jhugestar.github.io), [Tomas Simon](http://www.cs.cmu.edu/~tsimon), and [Yaser Sheikh](http://www.cs.cmu.edu/~yaser)**. It is based on [Realtime Multi-Person Pose Estimation](https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation). In addition, OpenPose would not be possible without the [CMU Panoptic Studio dataset](http://domedb.perception.cs.cmu.edu). We would also like to thank all the people who helped OpenPose in any way.
 
-This repository and its documentation assumes knowledge of [**OpenPose**](https://github.com/CMU-Perceptual-Computing-Lab/openpose). If you have not used OpenPose yet, you must familiare yourself with it before attempting to follow this documentation.
+This repository and its documentation assumes knowledge of [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose). If you have not used OpenPose yet, you must familiare yourself with it before attempting to follow this documentation.
 
 
 
@@ -32,7 +32,7 @@ This repository and its documentation assumes knowledge of [**OpenPose**](https:
 - Release of some **experimental models** that have not been included into [**OpenPose**](https://github.com/CMU-Perceptual-Computing-Lab/openpose). These models are experimental and might present some issues compared to the models officially released inside OpenPose.
 This project is licensed under the terms of the [license](LICENSE).
     - Whole-body pose estimation models from [Single-Network Whole-Body Pose Estimation](https://www.gineshidalgo.com/#section-5c3aab65b18d8).
-    - Alternative to the `BODY_25` model of OpenPose, which higher accuracy but slower speed.
+    - Alternative to the `BODY_25` model of OpenPose, with higher accuracy but slower speed.
 
 
 
@@ -44,7 +44,6 @@ For testing, use the official [OpenPose](https://github.com/CMU-Perceptual-Compu
 
 ## Training
 Depending on the kind of model you are trying to learn, use the following training steps:
-
 - a) Generate data for training:
     - COCO:
         - Option a)
@@ -86,8 +85,7 @@ Depending on the kind of model you are trying to learn, use the following traini
 Please cite these papers in your publications if it helps your research (the face keypoint detector was trained using the procedure described in [Simon et al. 2017] for hands):
 
     @inproceedings{hidalgo2019singlenetwork,
-      author = {Gines Hidalgo and Yaadhav Raaj and Haroon Idrees and Donglai Xiang and Hanbyul Joo and Tomas Simon and Yaser Sheikh
-},
+      author = {Gines Hidalgo and Yaadhav Raaj and Haroon Idrees and Donglai Xiang and Hanbyul Joo and Tomas Simon and Yaser Sheikh},
       booktitle = {ICCV},
       title = {Single-Network Whole-Body Pose Estimation},
       year = {2019}
