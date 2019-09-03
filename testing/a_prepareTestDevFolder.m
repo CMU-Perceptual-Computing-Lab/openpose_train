@@ -8,9 +8,9 @@ tic
 addpath('../matlab_utilities/')
 yearString = '2017';
 datasetPath = '../dataset/COCO/';
-testDevFilePath = [datasetPath, 'coco/annotations/image_info_test-dev', yearString, '.json'];
-testFolder = [datasetPath, 'images/test', yearString, '/'];
-testDevFolder = [datasetPath, 'images/test', yearString, '_dev/'];
+testDevFilePath = [datasetPath, 'cocoapi/annotations/image_info_test-dev', yearString, '.json'];
+testFolder = [datasetPath, 'cocoapi/images/test', yearString, '/'];
+testDevFolder = [datasetPath, 'cocoapi/images/test', yearString, '_dev/'];
 
 %% Read JSON text
 fileID = fopen(testDevFilePath);
