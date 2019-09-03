@@ -18,9 +18,9 @@ All the following scripts are meant to be used with our modified version of the 
 
 ## Training
 This directory contains multiple scripts to generate the scripts for training and to actually train the models. It is split into 2 sections:
-    1. [Body Training](#body-training): Used to train the COCO body model.
-    2. [Whole-Body Training](#whole-body-training): Used to train the whole-body model.
-    3. By mixing the scripts from points 1 and 2, any kind of training is possible (e.g., body and hands, face only, etc.). However, the only examples available are for: body (COCO), body-foot, and whole-body. Thus, only questions about these 3 types will be answered.
+1. [Body Training](#body-training): Used to train the COCO body model.
+2. [Whole-Body Training](#whole-body-training): Used to train the whole-body model.
+3. By mixing the scripts from points 1 and 2, any kind of training is possible (e.g., body and hands, face only, etc.). However, the only examples available are for: body (COCO), body-foot, and whole-body. Thus, only questions about these 3 types will be answered.
 
 Depending on the kind of model you are trying to learn, use the following training steps:
 1. Either download or generate the LMDB files for training:

@@ -18,8 +18,8 @@ All the following scripts are meant to be used with our modified version of the 
 
 ## Validation
 This directory contains multiple scripts to evaluate the accuracy of the trained models. It is split into 2 sections:
-    1. [Auto-Validation during Training](#auto-validation-during-training): Used to find the best models of each training session.
-    2. [Validation of Specific Models](#validation-of-specific-models): Used to debug or analyze the best models accross different training sessions.
+1. [Auto-Validation during Training](#auto-validation-during-training): Used to find the best models of each training session.
+2. [Validation of Specific Models](#validation-of-specific-models): Used to debug or analyze the best models accross different training sessions.
 
 All the following scripts are meant to be used with our modified version of the [Matlab COCO API](https://github.com/gineshidalgo99/cocoapi.git), cloned into `dataset/COCO/` as `dataset/COCO/cocoapi/`.
 
@@ -27,7 +27,6 @@ All the following scripts are meant to be used with our modified version of the 
 
 ### Auto-Validation during Training
 In my case, I duplicate this repo once on each one of my servers. Then, I move the models and other useful files into a central NAS (i.e., storage) server. Finally, I process it. Script (a) is run on each server. Scripts (b)-(h) are run from the central server. This is why the following scripts:
-
 - [validation/a_copyModels.sh.example](./a_copyModels.sh.example): While training OpenPose, this script automatically copies the important files (each model snapshot, all prototxt files, and the txt log file) into the desired folder with the desired name. Only `EXPERIMENT` and `SHARED_FOLDER` should be modified between experiments. This script should be duplicated and edited as `validation/a_copyModels.sh` on each training folder in order to be used (which is included in the gitignore file so it can be added in multiple training servers).
 - [validation/a_copyModelsCar.sh.example](./a_copyModelsCar.sh.example): Analog to `validation/a_copyModels.sh.example`, but applied to the car dataset. Experimental and not released work. See [car/README.md](../car/README.md) for more details.
 - [validation/b_emptyCocoJsons.sh](./b_emptyCocoJsons.sh): If there is not enough time to test all models, this script will generate empty files for the desired models (e.g., if not enough time to test them all, useful for the models generated during the first 150k iterations).
