@@ -8,6 +8,9 @@
 2. [Training](#training)
     1. [Phase 1 - Generating LMDB Files](#phase-1-generating-lmdb-files)
     2. [Phase 2 - Training](#phase-2-training)
+3. [Training Examples](#training-examples)
+    1. [OpenPose BODY_25](#openpose-body-25)
+    2. [Single-Network Whole-Body Pose Estimation](#single-network-whole-body-pose-estimation)
 
 
 
@@ -27,28 +30,35 @@ Depending on the kind of model you are trying to learn, use the following traini
     - Option a) Download the LMDB files ready to be used by running `cd training && bash a_downloadAndUpzipLmdbs.sh`. It will download them into `dataset/` with names following the format `dataset/lmdb_X`, where `X` will be similar to the dataset name.
     - Option b) Generate the LMDB files by yourself:
         - COCO:
-            - Option a)
+            - Option a) Download the required LMDB by running `cd training; bash a_lmdbGetBody.sh`.
+            - Option b)
                 1. Run `cd training; bash a0_getData.sh` to obtain the COCO images in `dataset/COCO/cocoapi/images/`, keypoints annotations in `dataset/COCO/annotations/` and our custom [COCO official toolbox](https://github.com/gineshidalgo99/cocoapi) in `dataset/COCO/cocoapi/`.
-                2. Run `a2_coco_jsonToMat.m` in Matlab to convert the annotation format from json to mat in `dataset/COCO/mat/`.
-                3. Run `a3_coco_matToMasks.m` in Matlab to obatin the mask images for unlabeled person. You can use 'parfor' in Matlab to speed up the code.
-                4. Run `a4_coco_matToRefinedJson.m` to generate a json file in `dataset/COCO/json/` directory. The json files contain raw informations needed for training.
-                5. Run `python c_generateLmdbs.py` to generate the COCO and background-COCO LMDBs.
-        - Foot / Face / Hand:
-            1. Downloaded the datasets.
-            2. Run `a2_coco_jsonToMat.m` analogously to COCO, but with the foot/face/hand option.
-            3. Run `a4_coco_matToRefinedJson.m` analogously to COCO, but with the foot/face/hand option.
-            4. Run `python c_generateLmdbs.py` again to generate the (COCO+foot)/face/hand LMDB.
+                2. Run `a1_coco_jsonToNegativesJson.m` in Matlab to generate the LMDB with the images with no people on them.
+                3. Run `a2_coco_jsonToMat.m` in Matlab to convert the annotation format from json to mat in `dataset/COCO/mat/`.
+                4. Run `a3_coco_matToMasks.m` in Matlab to obatin the mask images for unlabeled person. You can use 'parfor' in Matlab to speed up the code.
+                5. Run `a4_coco_matToRefinedJson.m` to generate a json file in `dataset/COCO/json/` directory. The json files contain raw informations needed for training.
+                6. Run `python c_generateLmdbs.py` to generate the COCO and background-COCO LMDBs.
+        - Foot / Face / Hand / Dome:
+            - Option a) Download the required LMDBs by running `cd training; bash a_lmdbGetFace.sh; bash a_lmdbGetFoot.sh; bash a_lmdbGetHands.sh; bash a_lmdbGetDome.sh`.
+            - Option b)
+                1. Download the datasets.
+                2. Run `a2_coco_jsonToMat.m` analogously to COCO, but with the foot/face/hand option.
+                3. Run `a4_coco_matToRefinedJson.m` analogously to COCO, but with the foot/face/hand option.
+                4. Run `python c_generateLmdbs.py` again to generate the (COCO+foot)/face/hand LMDB.
         - MPII:
-            1. Download [Images (12.9 GB)](https://datasets.d2.mpi-inf.mpg.de/andriluka14cvpr/mpii_human_pose_v1.tar.gz) and [Annotations (12.5 MB)](https://datasets.d2.mpi-inf.mpg.de/andriluka14cvpr/mpii_human_pose_v1_u12_2.zip) from the [MPII dataset](http://human-pose.mpi-inf.mpg.de/#download) into `dataset/MPII/`.
-            2. Run `a0_convertMatToInitialJson.m`
-            3. Run `python a1_generateFinalJsonAndMasks.py` with `sMode = 1` to generate the masks.
-            4. Run `python a1_generateFinalJsonAndMasks.py` with `sMode = 2` to generate the final JSON file.
-            5. Run `python c_generateLmdbs.py` again to generate the MPII LMDB.
+            - Option a) Download the required LMDB by running `cd training; bash a_lmdbGetMpii.sh`.
+            - Option b)
+                1. Download [Images (12.9 GB)](https://datasets.d2.mpi-inf.mpg.de/andriluka14cvpr/mpii_human_pose_v1.tar.gz) and [Annotations (12.5 MB)](https://datasets.d2.mpi-inf.mpg.de/andriluka14cvpr/mpii_human_pose_v1_u12_2.zip) from the [MPII dataset](http://human-pose.mpi-inf.mpg.de/#download) into `dataset/MPII/`.
+                2. Run `a0_convertMatToInitialJson.m`
+                3. Run `python a1_generateFinalJsonAndMasks.py` with `sMode = 1` to generate the masks.
+                4. Run `python a1_generateFinalJsonAndMasks.py` with `sMode = 2` to generate the final JSON file.
+                5. Run `python c_generateLmdbs.py` again to generate the MPII LMDB.
 2. Train model:
     - a) Download and compile our modified Caffe:
-        - OpenPose Caffe Training: [github.com/gineshidalgo99/openpose_caffe_train](https://github.com/gineshidalgo99/openpose_caffe_train).
+        - OpenPose Caffe Training: [github.com/CMU-Perceptual-Computing-Lab/openpose_caffe_train](https://github.com/CMU-Perceptual-Computing-Lab/openpose_caffe_train).
         - Compile it by running: `make all -j{num_cores} && make pycaffe -j{num_cores}`.
     - b) Generate the Caffe ProtoTxt and shell file for training by running `python d_setLayers.py`.
+        - Set `sCaffeFolder` to the path of [OpenPose Caffe Train](https://github.com/CMU-Perceptual-Computing-Lab/openpose_caffe_train).
         - Set `sAddFoot` to 1 or 0 to enable/disable combined body-foot.
         - Set `sAddMpii`, `sAddFace` and `sAddHands` to 1 or 0 to enable/disable boyd mpii/face/hands (if 1, then all the above must be also 1).
         - Set `sAddDome` to 1 or 0 to enable/disable the Dome whole-body dataset (if 1, then all the above must be also 1).
@@ -59,3 +69,12 @@ Depending on the kind of model you are trying to learn, use the following traini
     - d) Train:
         - Go to the auto-generated `training_results/pose/` directory.
         - Run `bash train_pose.sh 0,1,2,3` (generated by `d_setLayers.py`) to start the training with the 4 GPUs (0-3).
+
+
+
+## Training Examples
+### OpenPose BODY_25
+To train an improved version of the BODY_25 OpenPose model available in OpenPose, set `sAddFoot = sAddMpii = sAddDome = sSuperModel = 0`.
+
+### Single-Network Whole-Body Pose Estimation
+To train the model used for [Single-Network Whole-Body Pose Estimation](../README.md#citation) paper, set `sAddFoot = sAddMpii = sAddDome = sSuperModel = 1`.

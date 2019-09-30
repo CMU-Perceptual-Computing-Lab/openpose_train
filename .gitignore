@@ -140,3 +140,6 @@ a_copyModels.sh
 b_getCocoJsons.sh
 b_getCocoJsons*.sh
 d_setLayers.py
+
+######################### Caffe Models #########################
+*.caffemodel

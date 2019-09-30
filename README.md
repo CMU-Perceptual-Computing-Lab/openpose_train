@@ -36,6 +36,11 @@ This project is licensed under the terms of the [license](LICENSE).
 
 
 
+## Experimental Models
+The `experimental_models` directory contains our experimental models, including the whole-body model from [Single-Network Whole-Body Pose Estimation](README.md#citation), as well as instructions to make it run inside [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose). See [experimental_models/README.md](experimental_models/README.md) for more details.
+
+
+
 ## Testing
 See [testing/README.md](testing/README.md) for more details.
 
