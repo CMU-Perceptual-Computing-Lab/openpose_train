@@ -31,7 +31,7 @@ This repository and its documentation assumes knowledge of [OpenPose](https://gi
 - **Training code** for [**OpenPose**](https://github.com/CMU-Perceptual-Computing-Lab/openpose).
 - Release of some **experimental models** that have not been included into [**OpenPose**](https://github.com/CMU-Perceptual-Computing-Lab/openpose). These models are experimental and might present some issues compared to the models officially released inside OpenPose.
 This project is licensed under the terms of the [license](LICENSE).
-    - Whole-body pose estimation models from [Single-Network Whole-Body Pose Estimation](https://www.gineshidalgo.com/#section-5c3aab65b18d8).
+    - Whole-body pose estimation models from [Single-Network Whole-Body Pose Estimation](https://arxiv.org/abs/1909.13423).
     - Alternative to the `BODY_25` model of OpenPose, with higher accuracy but slower speed.
 
 
@@ -75,7 +75,7 @@ Please cite these papers in your publications if it helps your research (the fac
 
 Links to the papers:
 
-- [Single-Network Whole-Body Pose Estimation](https://www.gineshidalgo.com/#section-5c3aab65b18d8)
+- [Single-Network Whole-Body Pose Estimation](https://arxiv.org/abs/1909.13423)
 - [OpenPose: Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields](https://arxiv.org/abs/1812.08008)
 
 

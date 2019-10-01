@@ -133,6 +133,7 @@ dataset/
 testing_results/
 training_results/
 training_results*/
+!experimental_models/*/training_results*/
 
 ######################### Default Example Files #########################
 *_generateLmdbs.py
