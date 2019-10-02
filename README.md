@@ -21,7 +21,7 @@
 ## Introduction
 [**OpenPose Training**](https://github.com/CMU-Perceptual-Computing-Lab/openpose_training) includes the training code for [**OpenPose**](https://github.com/CMU-Perceptual-Computing-Lab/openpose), as well as some experimental models that might not necessarily end up in OpenPose (to avoid confusing its users with too many models).
 
-It is **authored by [Gines Hidalgo](https://www.gineshidalgo.com), [Yaadhav Raaj](https://www.raaj.tech), [Haroon Idrees](https://scholar.google.com/citations?user=z74SfHcAAAAJ&hl=en), [Donglai Xiang](https://xiangdonglai.github.io), [Hanbyul Joo](https://jhugestar.github.io), [Tomas Simon](http://www.cs.cmu.edu/~tsimon), and [Yaser Sheikh](http://www.cs.cmu.edu/~yaser)**. It is based on [Realtime Multi-Person Pose Estimation](https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation). In addition, OpenPose would not be possible without the [CMU Panoptic Studio dataset](http://domedb.perception.cs.cmu.edu). We would also like to thank all the people who helped OpenPose in any way.
+It is **authored by [Gines Hidalgo](https://www.gineshidalgo.com), [Zhe Cao](https://people.eecs.berkeley.edu/~zhecao), [Yaadhav Raaj](https://www.raaj.tech), [Tomas Simon](http://www.cs.cmu.edu/~tsimon), [Haroon Idrees](https://scholar.google.com/citations?user=z74SfHcAAAAJ&hl=en), [Donglai Xiang](https://xiangdonglai.github.io), [Shih-En Wei](https://scholar.google.com/citations?user=sFQD3k4AAAAJ&hl=en), [Hanbyul Joo](https://jhugestar.github.io), and [Yaser Sheikh](http://www.cs.cmu.edu/~yaser)**. It is based on the papers described in the [Citation](#citation) section and in [Realtime Multi-Person Pose Estimation](https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation). In addition, OpenPose would not be possible without the [CMU Panoptic Studio dataset](http://domedb.perception.cs.cmu.edu). We would also like to thank all the people who helped OpenPose in any way.
 
 This repository and its documentation assumes knowledge of [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose). If you have not used OpenPose yet, you must familiare yourself with it before attempting to follow this documentation.
 
@@ -31,8 +31,8 @@ This repository and its documentation assumes knowledge of [OpenPose](https://gi
 - **Training code** for [**OpenPose**](https://github.com/CMU-Perceptual-Computing-Lab/openpose).
 - Release of some **experimental models** that have not been included into [**OpenPose**](https://github.com/CMU-Perceptual-Computing-Lab/openpose). These models are experimental and might present some issues compared to the models officially released inside OpenPose.
 This project is licensed under the terms of the [license](LICENSE).
-    - Whole-body pose estimation models from [Single-Network Whole-Body Pose Estimation](https://arxiv.org/abs/1909.13423).
-    - Alternative to the `BODY_25` model of OpenPose, with higher accuracy but slower speed.
+    - `BODY_135`: Whole-body pose estimation models from [Single-Network Whole-Body Pose Estimation](https://arxiv.org/abs/1909.13423).
+    - `BODY_25B`: Alternative to the `BODY_25` model of OpenPose, with higher accuracy but slower speed.
 
 
 
