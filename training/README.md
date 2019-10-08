@@ -9,7 +9,7 @@
     1. [Phase 1 - Generating LMDB Files](#phase-1-generating-lmdb-files)
     2. [Phase 2 - Training](#phase-2-training)
 3. [Training Examples](#training-examples)
-    1. [OpenPose BODY_25](#openpose-body-25)
+    1. [OpenPose BODY_25B](#openpose-body-25)
     2. [Single-Network Whole-Body Pose Estimation](#single-network-whole-body-pose-estimation)
 
 
@@ -73,8 +73,8 @@ Depending on the kind of model you are trying to learn, use the following traini
 
 
 ## Training Examples
-### OpenPose BODY_25
-To train an improved version of the BODY_25 OpenPose model available in OpenPose, set `sAddFoot = sAddMpii = sAddDome = sSuperModel = 0`.
+### OpenPose BODY_25B
+To train an improved version of the `BODY_25B` OpenPose model available in OpenPose, set `sAddFoot = sAddMpii = 1`, and `sAddDome = sSuperModel = 0`. This should match the current example in [training/d_setLayers.py.example](./d_setLayers.py.example).
 
 ### Single-Network Whole-Body Pose Estimation
 To train the model used for [Single-Network Whole-Body Pose Estimation](../README.md#citation) paper, set `sAddFoot = sAddMpii = sAddDome = sSuperModel = 1`.
