@@ -1,0 +1,46 @@
+# Net Path Location
+net: "pose_training.prototxt"
+# Testing
+# test_iter specifies how many forward passes the test should carry out.
+# In the case of MNIST, we have test batch size 100 and 100 test iterations,
+# covering the full 10,000 testing images.
+#test_iter: 100
+# Carry out testing every 500 training iterations.
+#test_interval: 500
+# Solver Parameters - Base Learning Rate, Momentum and Weight Decay
+type:"Adam"
+base_lr: 0.000100
+momentum: 0.9
+momentum2: 0.999
+weight_decay: 0.0005
+# lr_policy: "step"   # The learning rate policy
+lr_policy: "multistep"   # The learning rate policy
+# gamma: 0.333
+gamma: 0.5
+# stepsize: 136106    # Previously: 29166 68053 136106 (previous one)
+# stepvalue: 10000
+# stepvalue: 20000
+# stepvalue: 30000
+# stepvalue: 40000
+# stepvalue: 50000
+# stepvalue: 60000
+# stepvalue: 70000
+# stepvalue: 80000
+# stepvalue: 90000
+# stepvalue: 100000
+stepvalue: 200000
+stepvalue: 300000
+stepvalue: 360000
+stepvalue: 420000
+stepvalue: 480000
+stepvalue: 540000
+stepvalue: 600000
+stepvalue: 700000
+stepvalue: 800000
+stepvalue: 900000
+# Output - Model Saving and Loss Output
+display: 20 # Previously: 5   # Display every X iterations
+max_iter: 1000000   # Maximum number of iterations, previously: 600000
+snapshot: 2000   # Snapshot intermediate results, previously: 2000. Mine: 10000?
+snapshot_prefix: "/mnt/4TB/openpose_train/training_results/pose/model/pose"
+solver_mode: GPU   # CPU or GPU
