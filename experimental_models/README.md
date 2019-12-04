@@ -24,7 +24,7 @@ Which model should I use?
 
 
 ## Single-Network Whole-Body Pose Estimation Model
-To use the `BODY_135` model trained for the [Single-Network Whole-Body Pose Estimation](../README.md#citation) paper (i.e., higher accuracy but slower speed than the default `BODY_135` model):
+To use the `BODY_135` model trained for the [Single-Network Whole-Body Pose Estimation](../README.md#citation) paper (i.e., higher accuracy but slower speed than the default `BODY_25` model):
 1. Download the Caffe model from [posefs1.perception.cs.cmu.edu/OpenPose/models/pose/100_135AlmostSameBatchAllGPUs/body_135/pose_iter_XXXXXX.caffemodel](http://posefs1.perception.cs.cmu.edu/OpenPose/models/pose/100_135AlmostSameBatchAllGPUs/body_135/pose_iter_XXXXXX.caffemodel) into [experimental_models/100_135AlmostSameBatchAllGPUs/body_135/](./100_135AlmostSameBatchAllGPUs/body_135/) as `pose_iter_XXXXXX.caffemodel`.
 2. Copy the `body_135` folder into the [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) models folder, such as you end up with the previous 2 files in the following paths:
     1. `openpose/models/pose/body_135/pose_deploy.prototxt`
