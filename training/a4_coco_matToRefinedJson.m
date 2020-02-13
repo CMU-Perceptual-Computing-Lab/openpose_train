@@ -49,6 +49,7 @@ for mode = modes
         load([sMatFolder, 'coco_kpt_foot.mat']);
         matAnnotations = coco_kpt;
         opt.FileName = [sJsonFolder, 'coco2017_foot.json'];
+%         sNumberKeyPoints = 6;
 %         dataType = 'val2017';
 %         load([sMatFolder, 'coco2017_val_foot.mat']);
 %         matAnnotations = coco_val;
