@@ -78,10 +78,14 @@ for mode = 0:1 % Body
     else
         assert(false, 'Unknown mode.');
     end
-    % Foot
-    if (mode == 2 || mode == 3)
+    % Foot_train
+    if (mode == 3)
         dataType = [dataType, '_foot_v2'];
         numberKeyPoints = 23;
+    % Foot_val
+    elseif (mode == 2)
+        dataType = [dataType, '_foot_v2'];
+        numberKeyPoints = 6;
     % COCO
     elseif (mode == 0 || mode == 1)
         numberKeyPoints = 17;
