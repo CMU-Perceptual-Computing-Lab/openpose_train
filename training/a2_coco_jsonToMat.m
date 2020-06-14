@@ -80,11 +80,11 @@ for mode = 0:1 % Body
     end
     % Foot_train
     if (mode == 3)
-        dataType = [dataType, '_foot_v1'];
+        dataType = [dataType, '_foot_v2'];
         numberKeyPoints = 23;
     % Foot_val
     elseif (mode == 2)
-        dataType = [dataType, '_foot_v1'];
+        dataType = [dataType, '_foot_v2'];
         numberKeyPoints = 6;
     % COCO
     elseif (mode == 0 || mode == 1)
