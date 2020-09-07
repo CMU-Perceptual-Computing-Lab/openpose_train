@@ -6,9 +6,9 @@
 ## Contents
 1. [Introduction](#introduction)
 2. [Single-Network Whole-Body Pose Estimation Model](#single-network-whole-body-pose-estimation-model)
-3. [Official BODY_25 Model](#official-body-25-model)
-4. [BODY_25B Model - Option 1 (Maximum Accuracy, Less Speed)](#body-25b-model-option-1-maximum-accuracy-less-speed))
-5. [BODY_25B Model - Option 2 (Recommended)](#body-25b-model-option-2-recommended))
+3. [Official BODY_25 Model](#official-body_25-model)
+4. [BODY_25B Model - Option 1 (Maximum Accuracy, Less Speed)](#body_25b-model---option-1-maximum-accuracy-less-speed))
+5. [BODY_25B Model - Option 2 (Recommended)](#body_25b-model---option-2-recommended))
 
 
 
