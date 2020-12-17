@@ -13,7 +13,7 @@
 
 
 ## Introduction
-Very important: All of these models only work on Nvidia GPU, they do not work on CPU or OpenCL modes.
+**Very important: All of these models require OpenPose with Nvidia GPU support**, they do not work on CPU or OpenCL modes.
 
 The `experimental_models` directory contains our experimental models, including the whole-body model from [Single-Network Whole-Body Pose Estimation](README.md#citation), as well as instructions to make it run inside [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose).
 
