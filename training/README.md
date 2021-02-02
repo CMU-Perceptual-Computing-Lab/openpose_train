@@ -74,7 +74,7 @@ Depending on the kind of model you are trying to learn, use the following traini
 
 
 ## Training Hardware
-Our best resuls are obtained with 4-GPU machines and a batch size of 10, training for about 800k iterations (and picking the model with maximum accuracy amount those).
+Our best resuls are obtained with 4-GPU machines and a batch size of 10, training for about 800k iterations (and picking the model with maximum accuracy among those).
 
 
 
