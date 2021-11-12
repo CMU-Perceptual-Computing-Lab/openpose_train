@@ -6,7 +6,7 @@ mkdir ../dataset
 cd ../dataset
 
 # COCO LMDB
-DATASET_DIR=lmdb_coco2017
+DATASET_DIR=lmdb_coco
 echo 'Downloading ${DATASET_DIR}...'
 mkdir ${DATASET_DIR}
 wget -nc --directory-prefix=${DATASET_DIR} 		${OPENPOSE_TRAINING_URL}${DATASET_DIR}data.mdb
